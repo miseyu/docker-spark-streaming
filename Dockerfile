@@ -6,12 +6,9 @@ ENV HADOOP_VERSION 2.7
 ENV SCALA_VERSION 2.11
 ENV SPARK_HOME /usr/local/spark
 
-# wget
-RUN apt-get -y update && apt-get install -y wget
+RUN echo "deb http://http.debian.net/debian jessie-backports main" > /etc/apt/sources.list.d/jessie-backports.list
 
-
-# Java
-RUN apt-get install -y --no-install-recommends openjdk-8-jdk
+RUN apt-get -y update && apt-get install -y wget && apt-get install -y -t jessie-backports --no-install-recommends openjdk-8-jdk
 
 # Spark
 RUN cd /tmp && \
