@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM debian:jessie
 
 # Environment
 ENV SPARK_VERSION 2.1.1
